@@ -1,0 +1,3 @@
+[submodule "reso"]
+	path = reso
+	url = https://github.com/Vamsee-264/resource_naming.git

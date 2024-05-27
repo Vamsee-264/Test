@@ -1,0 +1,51 @@
+location: westus3
+
+################################################################
+# Naming labels/prefixes
+################################################################
+
+naming:
+  cloudprefix: acc
+  locationcode: r01
+  envlabel: ctd
+  suffix: vs
+  rgsuffix: rg
+  resourcelabels:
+    # Override default labels by adding the appropriate label and value below
+    label_override_placeholder: SEE_README_FOR_OVERRIDE_NAMES
+  naming_convention:
+    delimiter: "-"
+  vmnameprefix: vm
+  force_uppercase: true
+
+tags:
+  applicationName: Infrastructure Management Shared Services
+  costCenter: 5005110006
+  applicationOwner: "~cloudinfrastructure@fi.com"
+  environment: DEV
+  businessUnit: IT Infrastructure Engineering
+  applicationTier: Tier 0
+  disasterRecovery:	Missing Critical
+  serviceClass: Gold
+  dataClass: Restricted
+  supportOwner: "~cloudinfrastructure@fi.com"
+  region: r01
+
+
+resource_groups:
+  testrg:
+    naming_convention:
+      name_mask: "OVERRIDING{delimiter}{envlabel}{delimiter}{suffix}"
+      suffix: "001"
+      delimiter: "-"
+      force_lowercase: true
+    enabled: true
+    name: "TEST_rg"
+  devrg:
+    enabled: true
+    name: "mygroup"
+  prdrg:
+    enabled: true
+    name: "prd-mygroup-r01"  
+    naming_convention:
+      name_mask: "{name}"
